@@ -15,6 +15,7 @@ venv/
 chroma_db/
 
 # ADK
+.adk/
 agents/.adk/
 
 # IDE
