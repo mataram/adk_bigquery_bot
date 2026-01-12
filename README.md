@@ -1,10 +1,10 @@
 # BI & Data Analyst Chatbot
 
-A Business Intelligence chatbot built with **Google ADK** that can query BigQuery, search the web, and use a local knowledge base.
+A Business Intelligence chatbot built with **Google ADK** that can query BigQuery, perform deep research, and use a local knowledge base.
 
 ## Features
 - **BigQuery Integration**: Query airline flight data
-- **Web Search**: DuckDuckGo-powered research
+- **Deep Research**: Gemini Deep Research Agent for comprehensive web research (takes 1-5 minutes)
 - **RAG Knowledge Base**: ChromaDB vector store
 
 ## Setup
@@ -28,13 +28,31 @@ A Business Intelligence chatbot built with **Google ADK** that can query BigQuer
 
 4. **Run the Chatbot**:
    ```bash
+   # Windows
    ./run_app.bat
+   
+   # Linux/Mac
+   chmod +x run_app.sh
+   ./run_app.sh
    ```
    Open **http://localhost:8000** in your browser.
 
+## Configuration
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `GOOGLE_API_KEY` | Gemini API key | Required |
+| `GEMINI_MODEL` | LLM model name | `gemini-2.5-pro` |
+| `DEEP_RESEARCH_AGENT` | Research agent | `deep-research-pro-preview-12-2025` |
+| `DEEP_RESEARCH_TIMEOUT` | Research timeout (seconds) | `120` |
+
 ## Project Structure
 ```
-agents/bi_data_analyst/    # ADK Agent definition
-src/tools/                 # BigQuery, Research, RAG tools
-chroma_db/                 # Vector store (gitignored)
+agents/bi_data_analyst/
+  ├── agent.py        # ADK Agent definition
+  └── prompt.txt      # System prompt (editable)
+src/tools/
+  ├── bigquery.py     # BigQuery queries
+  ├── research.py     # Gemini Deep Research
+  └── rag.py          # ChromaDB knowledge base
 ```
