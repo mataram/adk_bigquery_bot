@@ -44,7 +44,7 @@ A Business Intelligence chatbot built with **Google ADK** that can query BigQuer
 | `GOOGLE_API_KEY` | Gemini API key | Required |
 | `GEMINI_MODEL` | LLM model name | `gemini-2.5-pro` |
 | `DEEP_RESEARCH_AGENT` | Research agent | `deep-research-pro-preview-12-2025` |
-| `DEEP_RESEARCH_TIMEOUT` | Research timeout (seconds) | `120` |
+| `DEEP_RESEARCH_TIMEOUT` | Research timeout (seconds) | `300` |
 
 ## Project Structure
 ```
