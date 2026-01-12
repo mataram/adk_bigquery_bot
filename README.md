@@ -18,7 +18,7 @@ A Business Intelligence chatbot built with **Google ADK** that can query BigQuer
 
 2. **Configure Environment**:
    - Copy `.env.example` to `.env`
-   - Add your `GOOGLE_API_KEY`
+   - Add your `GOOGLE_API_KEY`, `GEMINI_MODEL`, `DEEP_RESEARCH_AGENT`, `DEEP_RESEARCH_TIMEOUT`
    - Run `gcloud auth application-default login` for BigQuery
 
 3. **Ingest Knowledge Base** (optional):
@@ -37,7 +37,7 @@ A Business Intelligence chatbot built with **Google ADK** that can query BigQuer
    ```
    Open **http://localhost:8000** in your browser.
 
-## Configuration
+## Configuration .env file
 
 | Variable | Description | Default |
 |----------|-------------|---------|
