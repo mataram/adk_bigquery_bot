@@ -39,26 +39,10 @@ def create_agent():
         rag_tool.search
     ]
 
-    system_instruction = """
-    You are a Business Intelligence and Data Analyst Chatbot.
-    Your goal is to answer user questions using data from BigQuery, external research, or your knowledge base.
-    
-    Process:
-    1. Understand the user's question.
-    2. detailed analysis of the question and decide which tool to use.
-    3. IF the question is about data/metrics:
-       a. List datasets/tables to find relevant data.
-       b. Get the schema of relevant tables.
-       c. Write and execute a SQL query.
-       d. Analyze the results and answer the user.
-    4. IF the question requires external context:
-       a. Use the web_search tool.
-    5. IF the question is about domain knowledge:
-       a. Use the knowledge_base search tool.
-    
-    Always be helpful, concise, and professional.
-    When generating SQL, use standard BigQuery SQL syntax.
-    """
+    # Load system instruction from file
+    prompt_path = os.path.join(os.path.dirname(__file__), "prompt.txt")
+    with open(prompt_path, "r", encoding="utf-8") as f:
+        system_instruction = f.read()
 
     # Get model from environment
     model_name = os.getenv("GEMINI_MODEL", "gemini-2.5-pro")
